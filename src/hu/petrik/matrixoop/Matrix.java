@@ -6,16 +6,18 @@ import java.util.Random;
 public class Matrix {
     private int sor;
     private int oszlop;
-    private int[][] m;
+    private int[][] m; //matrix letrehozas syntax
     private static final Random rnd = new Random();
+
 
     public Matrix(int sor, int oszlop) {
         this.sor = sor;
         this.oszlop = oszlop;
         this.m = new int[sor][oszlop];
+        //matrix inicializalas, feltoltes
         for (int i = 0; i < this.m.length; i++) {
             for (int j = 0; j < this.m[i].length; j++) {
-                this.m[i][j] = rnd.nextInt(150) - 50;
+                this.m[i][j] = rnd.nextInt(150) - 50; //matrix elemekkel random elemekkel feltoltes
             }
         }
     }
@@ -24,7 +26,7 @@ public class Matrix {
         int osszeg = 0;
         for (int[] sor : this.m) {
             for (int elem : sor) {
-                osszeg += elem;
+                osszeg += elem; //osszes elem osszege
             }
         }
         return osszeg;
@@ -40,6 +42,7 @@ public class Matrix {
             }
         }
         return db;
+        //pozitiv elemek osszege
     }
 
 
@@ -53,7 +56,7 @@ public class Matrix {
             }
         }
         return max;
-
+        //maxkeres matrixban
 
     }
 
@@ -78,7 +81,7 @@ public class Matrix {
 
         }
             return new int[]{sorIndex, oszlopIndex};
-
+        //elso pozitiv elem indexeinek visszaadasa (igen, bonyi.)
     }
 
     public double sorOsszeg (int sor) {
@@ -88,7 +91,7 @@ public class Matrix {
         {
             osszeg+= elem;
         }
-
+        //adott sor elemeinek osszege
         return osszeg;
     }
 
@@ -98,13 +101,13 @@ public class Matrix {
         StringBuilder sb = new StringBuilder();
         for (int[] sor : this.m) {
             for (int elem : sor) {
-                sb.append(String.format("%3d ", elem));
+                sb.append(String.format("%3d ", elem)); //tablazatos kiiratas
             }
-            sb.append(System.lineSeparator());
+            sb.append(System.lineSeparator()); //sortores
         }
 
 
-        return sb.toString().trim();
+        return sb.toString().trim(); //utolso folos sortores, szokoz kiszedese
     }
 
 }
